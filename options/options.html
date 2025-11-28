@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WishPop Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>WishPop Settings</h1>
+      <p class="subtitle">Configure your WishPop extension</p>
+    </div>
+
+    <div class="content">
+      <section class="section">
+        <h2>Account</h2>
+        <div class="setting-group">
+          <div id="accountInfo" class="account-info" style="display: none;">
+            <div class="user-card">
+              <div class="user-details">
+                <strong id="userEmail"></strong>
+                <p id="userPlan">Free Plan</p>
+              </div>
+              <button id="logoutBtn" class="btn btn-danger">Logout</button>
+            </div>
+          </div>
+
+          <div id="loginPrompt" class="login-prompt" style="display: none;">
+            <p>You are not logged in to WishPop</p>
+            <button id="loginBtn" class="btn btn-primary">Login to WishPop</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>API Configuration</h2>
+        <div class="setting-group">
+          <label for="apiUrl">API URL</label>
+          <input type="text" id="apiUrl" placeholder="https://wishpop.app" />
+          <p class="help-text">Change this if you're using a custom WishPop instance</p>
+        </div>
+
+        <div class="setting-group">
+          <label for="apiKey">API Key (Optional)</label>
+          <input type="password" id="apiKey" placeholder="Enter your API key" />
+          <p class="help-text">You can find your API key in your WishPop account settings</p>
+          <button id="toggleApiKey" class="btn-link">Show</button>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Extension Behavior</h2>
+
+        <div class="setting-group">
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="showFloatingButton" />
+            <label for="showFloatingButton">Show floating "Add to WishPop" button on product pages</label>
+          </div>
+        </div>
+
+        <div class="setting-group">
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="autoDetect" />
+            <label for="autoDetect">Automatically detect product pages</label>
+          </div>
+        </div>
+
+        <div class="setting-group">
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="notifications" />
+            <label for="notifications">Show notifications when items are added</label>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Data & Privacy</h2>
+
+        <div class="setting-group">
+          <p class="help-text">WishPop respects your privacy. We only collect product information when you explicitly add items to your wishlist.</p>
+          <button id="clearDataBtn" class="btn btn-danger">Clear All Local Data</button>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button id="saveBtn" class="btn btn-primary">Save Settings</button>
+        <button id="resetBtn" class="btn btn-secondary">Reset to Defaults</button>
+      </div>
+
+      <div id="messageBox" class="message-box" style="display: none;"></div>
+    </div>
+
+    <footer class="footer">
+      <p>WishPop Extension v1.0.0</p>
+      <p>
+        <a href="https://wishpop.app/help" target="_blank">Help</a> |
+        <a href="https://wishpop.app/privacy" target="_blank">Privacy Policy</a> |
+        <a href="https://wishpop.app/terms" target="_blank">Terms of Service</a>
+      </p>
+    </footer>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

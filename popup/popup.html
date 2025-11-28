@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WishPop - Add to Wishlist</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>WishPop</h1>
+      <p class="tagline">Your wishlist, anywhere</p>
+    </div>
+
+    <div id="loginSection" class="section" style="display: none;">
+      <p class="message">Please log in to use WishPop</p>
+      <button id="loginBtn" class="btn btn-primary">Login to WishPop</button>
+      <button id="settingsBtn" class="btn btn-secondary">Settings</button>
+    </div>
+
+    <div id="loggedInSection" class="section" style="display: none;">
+      <div class="user-info">
+        <span id="userName"></span>
+        <button id="logoutBtn" class="btn-link">Logout</button>
+      </div>
+
+      <div class="quick-add">
+        <h3>Quick Add to Wishlist</h3>
+        <input type="text" id="itemName" placeholder="Item name" />
+        <input type="text" id="itemUrl" placeholder="Item URL (optional)" />
+        <input type="number" id="itemPrice" placeholder="Price (optional)" step="0.01" />
+        <textarea id="itemNotes" placeholder="Notes (optional)" rows="3"></textarea>
+        <button id="quickAddBtn" class="btn btn-primary">Add to Wishlist</button>
+      </div>
+
+      <div class="actions">
+        <button id="captureBtn" class="btn btn-accent">Capture Current Page</button>
+        <button id="viewWishlistBtn" class="btn btn-secondary">View My Wishlist</button>
+      </div>
+
+      <div class="stats">
+        <p>Items in wishlist: <span id="itemCount">0</span></p>
+      </div>
+    </div>
+
+    <div id="messageBox" class="message-box" style="display: none;"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

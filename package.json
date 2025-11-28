@@ -1,0 +1,30 @@
+{
+  "name": "wishpop-chrome-extension",
+  "version": "1.0.0",
+  "description": "Chrome extension for WishPop - Shop anywhere and seamlessly add items to your wishlist",
+  "main": "background/background.js",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "package": "node scripts/package.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chrome-extension",
+    "wishlist",
+    "shopping",
+    "e-commerce",
+    "wishpop"
+  ],
+  "author": "WishPop",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/wishpop-extension.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/wishpop-extension/issues"
+  },
+  "homepage": "https://wishpop.app",
+  "devDependencies": {},
+  "dependencies": {}
+}
