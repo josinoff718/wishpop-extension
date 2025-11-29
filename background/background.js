@@ -20,24 +20,30 @@ chrome.runtime.onInstalled.addListener((details) => {
     console.log('WishPop extension updated');
   }
 
-  // Create context menu items
-  chrome.contextMenus.create({
-    id: 'add-to-wishlist',
-    title: 'Add to WishPop Wishlist',
-    contexts: ['page', 'selection', 'link', 'image']
-  });
+  // Create context menu items (on install/update)
+  try {
+    chrome.contextMenus.removeAll(() => {
+      chrome.contextMenus.create({
+        id: 'add-to-wishlist',
+        title: 'Add to WishPop Wishlist',
+        contexts: ['page', 'selection', 'link', 'image']
+      });
 
-  chrome.contextMenus.create({
-    id: 'add-selection-to-wishlist',
-    title: 'Add "%s" to WishPop',
-    contexts: ['selection']
-  });
+      chrome.contextMenus.create({
+        id: 'add-selection-to-wishlist',
+        title: 'Add "%s" to WishPop',
+        contexts: ['selection']
+      });
 
-  chrome.contextMenus.create({
-    id: 'add-link-to-wishlist',
-    title: 'Add Link to WishPop',
-    contexts: ['link']
-  });
+      chrome.contextMenus.create({
+        id: 'add-link-to-wishlist',
+        title: 'Add Link to WishPop',
+        contexts: ['link']
+      });
+    });
+  } catch (error) {
+    console.error('Error creating context menus:', error);
+  }
 });
 
 // Context menu click handler
@@ -57,21 +63,18 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   let item = null;
 
   if (info.menuItemId === 'add-to-wishlist') {
-    // Add current page
     item = {
       name: tab.title,
       url: tab.url,
       source: 'extension_context_menu'
     };
   } else if (info.menuItemId === 'add-selection-to-wishlist') {
-    // Add selected text
     item = {
       name: info.selectionText,
       url: info.pageUrl,
       source: 'extension_context_menu_selection'
     };
   } else if (info.menuItemId === 'add-link-to-wishlist') {
-    // Add link
     item = {
       name: info.linkUrl,
       url: info.linkUrl,
@@ -107,10 +110,10 @@ async function addToWishlist(item, apiKey, apiUrl) {
 
       // Notify popup to update count
       chrome.runtime.sendMessage({ action: 'itemAdded' }).catch(() => {
-        // Ignore errors if popup is not open
+        // Ignore if no listener
       });
     } else {
-      const error = await response.json();
+      const error = await response.json().catch(() => ({}));
       chrome.notifications.create({
         type: 'basic',
         iconUrl: 'icons/icon128.png',
@@ -132,17 +135,15 @@ async function addToWishlist(item, apiKey, apiUrl) {
 // Message handler
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === 'authenticate') {
-    // Handle authentication
     handleAuthentication(message.data);
   } else if (message.action === 'getAuthStatus') {
-    // Return auth status
     chrome.storage.sync.get(['user', 'apiKey'], (data) => {
       sendResponse({
         authenticated: !!(data.user && data.apiKey),
         user: data.user
       });
     });
-    return true; // Keep channel open for async response
+    return true;
   }
 });
 
@@ -154,9 +155,8 @@ async function handleAuthentication(data) {
       apiKey: data.apiKey
     });
 
-    // Notify popup of auth change
     chrome.runtime.sendMessage({ action: 'authChanged' }).catch(() => {
-      // Ignore errors if popup is not open
+      // Ignore if no listener
     });
 
     chrome.notifications.create({
@@ -174,18 +174,19 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
     const { showFloatingButton } = await chrome.storage.sync.get(['showFloatingButton']);
 
     if (showFloatingButton !== false) {
-      // Check if it's a product page and inject button if needed
-      chrome.scripting.executeScript({
-        target: { tabId },
-        files: ['content/content.js']
-      }).catch(() => {
+      try {
+        await chrome.scripting.executeScript({
+          target: { tabId },
+          files: ['content/content.js']
+        });
+      } catch (error) {
         // Ignore errors for pages where we can't inject scripts
-      });
+      }
     }
   }
 });
 
-// Handle keyboard shortcuts (if configured)
+// Handle keyboard shortcuts
 chrome.commands.onCommand.addListener((command) => {
   if (command === 'add-to-wishlist') {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
