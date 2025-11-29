@@ -129,7 +129,7 @@ quickAddBtn.addEventListener('click', async () => {
     }
 
     const baseUrl = apiUrl || 'https://wishpop.app';
-    const response = await fetch(`${baseUrl}/api/p/688a4a52e2f530af6381409f/function/wishlistApi?action=items`, {
+    const response = await fetch(`${baseUrl}/api/p/688a4a52e2f530af6381409f/function/wishlistApi`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

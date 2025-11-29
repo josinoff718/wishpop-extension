@@ -14,7 +14,7 @@ chrome.runtime.onInstalled.addListener((details) => {
 
     // Open welcome page
     chrome.tabs.create({
-      url: 'https://wishpop.app/extension/welcome'
+      url: 'https://wishpop.app/ExtensionWelcome'
     });
   } else if (details.reason === 'update') {
     console.log('WishPop extension updated');
@@ -92,7 +92,7 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
 async function addToWishlist(item, apiKey, apiUrl) {
   try {
     const baseUrl = apiUrl || 'https://wishpop.app';
-    const response = await fetch(`${baseUrl}/api/p/688a4a52e2f530af6381409f/function/wishlistApi?action=items`, {
+    const response = await fetch(`${baseUrl}/api/p/688a4a52e2f530af6381409f/function/wishlistApi`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
