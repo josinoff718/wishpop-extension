@@ -19,18 +19,14 @@ chrome.runtime.onInstalled.addListener((details) => {
   } else if (details.reason === 'update') {
     console.log('WishPop extension updated');
   }
-});
 
-// Context menu items
-chrome.runtime.onInstalled.addListener(() => {
-  // Create context menu for adding current page to wishlist
+  // Create context menu items
   chrome.contextMenus.create({
     id: 'add-to-wishlist',
     title: 'Add to WishPop Wishlist',
     contexts: ['page', 'selection', 'link', 'image']
   });
 
-  // Create context menu for adding selected text/link
   chrome.contextMenus.create({
     id: 'add-selection-to-wishlist',
     title: 'Add "%s" to WishPop',
