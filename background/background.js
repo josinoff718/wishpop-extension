@@ -47,7 +47,7 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   if (!apiKey) {
     chrome.notifications.create({
       type: 'basic',
-      iconUrl: '../icons/icon128.png',
+      iconUrl: 'icons/icon128.png',
       title: 'WishPop',
       message: 'Please log in to WishPop first'
     });
@@ -100,18 +100,20 @@ async function addToWishlist(item, apiKey, apiUrl) {
     if (response.ok) {
       chrome.notifications.create({
         type: 'basic',
-        iconUrl: '../icons/icon128.png',
+        iconUrl: 'icons/icon128.png',
         title: 'WishPop',
         message: 'Item added to your wishlist!'
       });
 
       // Notify popup to update count
-      chrome.runtime.sendMessage({ action: 'itemAdded' });
+      chrome.runtime.sendMessage({ action: 'itemAdded' }).catch(() => {
+        // Ignore errors if popup is not open
+      });
     } else {
       const error = await response.json();
       chrome.notifications.create({
         type: 'basic',
-        iconUrl: '../icons/icon128.png',
+        iconUrl: 'icons/icon128.png',
         title: 'WishPop Error',
         message: error.message || 'Failed to add item to wishlist'
       });
@@ -120,7 +122,7 @@ async function addToWishlist(item, apiKey, apiUrl) {
     console.error('Error adding to wishlist:', error);
     chrome.notifications.create({
       type: 'basic',
-      iconUrl: '../icons/icon128.png',
+      iconUrl: 'icons/icon128.png',
       title: 'WishPop Error',
       message: 'Failed to add item. Please try again.'
     });
@@ -153,11 +155,13 @@ async function handleAuthentication(data) {
     });
 
     // Notify popup of auth change
-    chrome.runtime.sendMessage({ action: 'authChanged' });
+    chrome.runtime.sendMessage({ action: 'authChanged' }).catch(() => {
+      // Ignore errors if popup is not open
+    });
 
     chrome.notifications.create({
       type: 'basic',
-      iconUrl: '../icons/icon128.png',
+      iconUrl: 'icons/icon128.png',
       title: 'WishPop',
       message: `Welcome back, ${data.user.name || data.user.email}!`
     });
