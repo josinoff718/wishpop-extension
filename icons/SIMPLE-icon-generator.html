@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WishPop Icon Generator - SIMPLE</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 { color: #667eea; }
+    .instructions {
+      background: #f0f9ff;
+      padding: 20px;
+      border-radius: 8px;
+      border: 2px solid #667eea;
+      margin: 20px 0;
+      text-align: left;
+    }
+    button {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      margin: 10px;
+    }
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+    .status {
+      margin-top: 20px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .success { color: #10b981; }
+    .preview {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin: 30px 0;
+      flex-wrap: wrap;
+    }
+    .icon-box {
+      text-align: center;
+    }
+    canvas {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎨 WishPop Icon Generator</h1>
+
+  <div class="instructions">
+    <h3>📋 Instructions:</h3>
+    <ol>
+      <li>Click the "Generate & Download All Icons" button below</li>
+      <li>Your browser will download 4 PNG files (one at a time)</li>
+      <li><strong>IMPORTANT:</strong> Save ALL 4 files to this same folder (icons folder)</li>
+      <li>Go back to Chrome and load the extension again</li>
+    </ol>
+  </div>
+
+  <button onclick="generateAndDownloadAll()" id="mainBtn">
+    🎯 Generate & Download All Icons
+  </button>
+
+  <div class="status" id="status"></div>
+
+  <div class="preview" id="preview"></div>
+
+  <script>
+    const sizes = [16, 32, 48, 128];
+    const canvases = {};
+    let downloadCount = 0;
+
+    function drawIcon(canvas, size) {
+      const ctx = canvas.getContext('2d');
+      canvas.width = size;
+      canvas.height = size;
+
+      // Create gradient background
+      const gradient = ctx.createLinearGradient(0, 0, size, size);
+      gradient.addColorStop(0, '#667eea');
+      gradient.addColorStop(1, '#764ba2');
+
+      // Draw rounded rectangle
+      const radius = size * 0.1875;
+      ctx.fillStyle = gradient;
+      ctx.beginPath();
+      ctx.roundRect(0, 0, size, size, radius);
+      ctx.fill();
+
+      // Draw heart
+      ctx.fillStyle = 'white';
+      const scale = size / 128;
+      ctx.save();
+      ctx.scale(scale, scale);
+
+      // Heart shape
+      ctx.beginPath();
+      ctx.moveTo(64, 89.23);
+      ctx.bezierCurveTo(64, 89.23, 86.84, 67.39, 86.84, 67.39);
+      ctx.lineTo(87.9, 66.33);
+      ctx.bezierCurveTo(93.78, 60.45, 93.78, 50.89, 87.9, 44.61);
+      ctx.bezierCurveTo(82.02, 38.73, 72.46, 38.73, 66.12, 44.61);
+      ctx.lineTo(64, 45.67);
+      ctx.lineTo(62.94, 44.61);
+      ctx.bezierCurveTo(56.66, 38.73, 47.1, 38.73, 41.16, 44.61);
+      ctx.bezierCurveTo(35.28, 50.49, 35.28, 60.45, 41.16, 66.33);
+      ctx.lineTo(42.22, 67.39);
+      ctx.lineTo(64, 89.23);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.restore();
+    }
+
+    function generatePreviews() {
+      const preview = document.getElementById('preview');
+      preview.innerHTML = '';
+
+      sizes.forEach(size => {
+        const box = document.createElement('div');
+        box.className = 'icon-box';
+
+        const canvas = document.createElement('canvas');
+        drawIcon(canvas, size);
+        canvases[size] = canvas;
+
+        const label = document.createElement('div');
+        label.textContent = `${size}×${size}px`;
+        label.style.marginTop = '8px';
+        label.style.fontSize = '12px';
+
+        box.appendChild(canvas);
+        box.appendChild(label);
+        preview.appendChild(box);
+      });
+    }
+
+    function downloadIcon(size) {
+      return new Promise((resolve) => {
+        const canvas = canvases[size];
+        canvas.toBlob(blob => {
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `icon${size}.png`;
+          a.click();
+          URL.revokeObjectURL(url);
+
+          downloadCount++;
+          updateStatus();
+
+          setTimeout(resolve, 800); // Wait between downloads
+        });
+      });
+    }
+
+    function updateStatus() {
+      const status = document.getElementById('status');
+      if (downloadCount === 0) {
+        status.innerHTML = 'Click the button to start...';
+        status.className = 'status';
+      } else if (downloadCount < 4) {
+        status.innerHTML = `⏳ Downloading ${downloadCount} of 4 icons...`;
+        status.className = 'status';
+      } else {
+        status.innerHTML = '✅ All 4 icons downloaded! Save them to the icons folder, then load the extension in Chrome.';
+        status.className = 'status success';
+      }
+    }
+
+    async function generateAndDownloadAll() {
+      downloadCount = 0;
+      generatePreviews();
+      updateStatus();
+
+      document.getElementById('mainBtn').disabled = true;
+      document.getElementById('mainBtn').textContent = '⏳ Downloading...';
+
+      for (const size of sizes) {
+        await downloadIcon(size);
+      }
+
+      document.getElementById('mainBtn').disabled = false;
+      document.getElementById('mainBtn').textContent = '✅ Done! Download Again?';
+    }
+
+    // Generate previews on load
+    window.onload = () => {
+      generatePreviews();
+      updateStatus();
+    };
+  </script>
+</body>
+</html>
