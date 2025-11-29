@@ -58,7 +58,7 @@ async function updateItemCount() {
     }
 
     const baseUrl = apiUrl || 'https://wishpop.app';
-    const response = await fetch(`${baseUrl}/api/wishlist/count`, {
+    const response = await fetch(`${baseUrl}/api/p/688a4a52e2f530af6381409f/function/wishlistApi?action=count`, {
       headers: {
         'Authorization': `Bearer ${apiKey}`
       }
@@ -88,7 +88,7 @@ function showMessage(message, type = 'success') {
 loginBtn.addEventListener('click', async () => {
   const { apiUrl } = await chrome.storage.sync.get(['apiUrl']);
   const baseUrl = apiUrl || 'https://wishpop.app';
-  chrome.tabs.create({ url: `${baseUrl}/login?ext=true` });
+  chrome.tabs.create({ url: `${baseUrl}/ExtensionAuth?ext=true` });
 });
 
 // Settings button click
@@ -129,7 +129,7 @@ quickAddBtn.addEventListener('click', async () => {
     }
 
     const baseUrl = apiUrl || 'https://wishpop.app';
-    const response = await fetch(`${baseUrl}/api/wishlist/items`, {
+    const response = await fetch(`${baseUrl}/api/p/688a4a52e2f530af6381409f/function/wishlistApi?action=items`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

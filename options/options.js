@@ -82,7 +82,7 @@ toggleApiKey.addEventListener('click', () => {
 // Login button click
 loginBtn.addEventListener('click', async () => {
   const baseUrl = apiUrl.value || 'https://wishpop.app';
-  chrome.tabs.create({ url: `${baseUrl}/login?ext=true` });
+  chrome.tabs.create({ url: `${baseUrl}/ExtensionAuth?ext=true` });
 });
 
 // Logout button click
