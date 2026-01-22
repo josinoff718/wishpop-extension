@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Fast Forward | Exclusive UF Family Network</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div id="particles-container"></div>
+        <div class="gradient-orb gradient-orb-1"></div>
+        <div class="gradient-orb gradient-orb-2"></div>
+        <div class="gradient-orb gradient-orb-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">College<span class="highlight">Fast</span>Forward</span>
+            </a>
+            <a href="#" class="nav-cta">Sign In</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="badge animate-float">
+                <span class="badge-dot"></span>
+                EXCLUSIVE ACCESS NETWORK
+            </div>
+
+            <h1 class="hero-title">
+                <span class="title-line">Only <span class="gradient-text">UF Families</span></span>
+                <span class="title-line">Can Access</span>
+            </h1>
+
+            <p class="hero-subtitle">
+                Your student's <strong>unfair advantage</strong> in the job market.
+            </p>
+
+            <p class="hero-description">
+                You're a Gator. You've paid your dues. Your <strong>UF founding families</strong> membership ensures that
+                your child has every tool, contact, and premium resource you can give them to land their
+                dream job.
+            </p>
+
+            <div class="hero-features">
+                <div class="feature-pill">
+                    <span class="feature-icon">👥</span>
+                    <span>80+ Founding Members Already Inside</span>
+                </div>
+                <div class="feature-pill">
+                    <span class="feature-icon">🎯</span>
+                    <span>Direct Access to UF Alumni in Hiring</span>
+                </div>
+            </div>
+
+            <div class="cta-container">
+                <div class="spots-badge">
+                    <span class="pulse-dot"></span>
+                    500 FREE founding spots left
+                </div>
+                <button class="cta-button primary" onclick="scrollToSection('signup')">
+                    <span>Claim Your Free Spot</span>
+                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+                <p class="cta-note">No spam, unsubscribe at any time • We won't ask for payment</p>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="network-visualization">
+                <div class="center-node">
+                    <span>Your Student</span>
+                </div>
+                <div class="orbit orbit-1">
+                    <div class="orbit-node" style="--delay: 0s;">Alumni</div>
+                    <div class="orbit-node" style="--delay: 2s;">Mentors</div>
+                    <div class="orbit-node" style="--delay: 4s;">Recruiters</div>
+                </div>
+                <div class="orbit orbit-2">
+                    <div class="orbit-node small" style="--delay: 1s;">Tech</div>
+                    <div class="orbit-node small" style="--delay: 3s;">Finance</div>
+                    <div class="orbit-node small" style="--delay: 5s;">Healthcare</div>
+                    <div class="orbit-node small" style="--delay: 7s;">Law</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Video/Preview Section -->
+    <section class="preview-section" id="preview">
+        <div class="container">
+            <div class="video-card">
+                <div class="video-glow"></div>
+                <div class="video-content">
+                    <button class="play-button">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </button>
+                    <p class="video-caption">Preview the Membership</p>
+                </div>
+                <div class="video-overlay">
+                    <span>Want a sneak peek of the Network?</span>
+                    <p>Click to see what it's like to connect with a proven UF parent like yourself.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem/Solution Section -->
+    <section class="insight-section" id="insight">
+        <div class="container">
+            <div class="insight-card">
+                <div class="insight-icon">💡</div>
+                <blockquote class="insight-quote">
+                    "They didn't hire him for his resume—they hired him for his <span class="highlight-text">network.</span>"
+                </blockquote>
+                <p class="insight-author">— Every successful parent who finally understood the game</p>
+            </div>
+
+            <div class="insight-details">
+                <p class="insight-text">
+                    Your student has worked too hard for their final success to be up to the job lottery.
+                </p>
+
+                <div class="comparison-visual">
+                    <div class="comparison-side without">
+                        <span class="label">Without Network</span>
+                        <div class="bar-container">
+                            <div class="bar bar-without"></div>
+                        </div>
+                        <span class="percentage">4%</span>
+                    </div>
+                    <div class="comparison-divider">vs</div>
+                    <div class="comparison-side with">
+                        <span class="label">With Network</span>
+                        <div class="bar-container">
+                            <div class="bar bar-with"></div>
+                        </div>
+                        <span class="percentage">85%</span>
+                    </div>
+                </div>
+
+                <p class="insight-emphasis">
+                    <strong>Here's the truth:</strong> A decent college grad gets their foot in doors that resume.pdfs
+                    never could. But on the wrong side of the door? There's no amount of hard work or luck to climb.
+                </p>
+
+                <p class="insight-call">
+                    The smartest parents win, because <strong>they know someone on the inside.</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section" id="stats">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-accent">The Numbers</span>
+                Don't Lie
+            </h2>
+
+            <div class="stats-grid">
+                <div class="stat-card stat-bad" data-aos="fade-up">
+                    <div class="stat-glow"></div>
+                    <div class="stat-number">
+                        <span class="stat-prefix">1 in</span>
+                        <span class="counter" data-target="250">0</span>
+                    </div>
+                    <div class="stat-label">COLD APPLICATION<br>SUCCESS RATE</div>
+                    <div class="stat-bar">
+                        <div class="stat-bar-fill" style="--fill-width: 0.4%"></div>
+                    </div>
+                </div>
+
+                <div class="stat-divider">
+                    <span>vs</span>
+                </div>
+
+                <div class="stat-card stat-good" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-glow"></div>
+                    <div class="stat-number">
+                        <span class="stat-prefix">1 in</span>
+                        <span class="counter" data-target="5">0</span>
+                    </div>
+                    <div class="stat-label">REFERRED APPLICATION<br>SUCCESS RATE</div>
+                    <div class="stat-bar">
+                        <div class="stat-bar-fill" style="--fill-width: 20%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-sources">
+                <span>JOHNS HOPKINS • BROWN UNIVERSITY • U.S. BUREAU LABOR STATS</span>
+            </div>
+
+            <p class="stats-insight">
+                That's what this network does. We turn your student from a stranger into a referral.
+            </p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-accent">What You Get</span>
+                Inside
+            </h2>
+
+            <p class="section-subtitle">
+                Imagine giving your student access to a virtual alumni board — credentialed UF grads, just
+                waiting to take them under their wing.
+            </p>
+
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon-large">🎯</div>
+                    <h3>Direct Access to 600+ Professionals</h3>
+                    <p>
+                        15 years of high-level recruiting experience in healthcare, finance, consulting,
+                        tech, and more. Professionals who've reviewed 50k+ applications — and want to help
+                        you avoid the noise — sharing everything with your child.
+                    </p>
+                </div>
+
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon-large">💼</div>
+                    <h3>#1 Career Advice</h3>
+                    <p>
+                        A professional who has reviewed 50k+ resumes + 1000s of apply-flow interviews?
+                    </p>
+                    <ul class="feature-list">
+                        <li>Resume advice — the specific playbook that leads to an interview</li>
+                        <li>Interview prep — what's really being asked vs. what's on the surface</li>
+                        <li>Negotiation advice — how to land an offer without underselling</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon-large">💬</div>
+                    <h3>Community Q&A</h3>
+                    <p>
+                        Feeling unsure about a career path?<br>
+                        Want to vet your student's best career fit questions?<br>
+                        Clueless about a company's actual work culture — from the inside?
+                    </p>
+                    <p class="feature-highlight">
+                        Ask anyone in the network. You'll receive honest industry insights from UF alumni
+                        who've already navigated these paths.
+                    </p>
+                </div>
+
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon-large">📝</div>
+                    <h3>Resume Review & Mock Interviews</h3>
+                    <p>
+                        Get your student's resume reviewed by someone who could be doing the hiring. Use their
+                        real-time feedback to fine-tune cover letters and job applications.
+                    </p>
+                </div>
+
+                <div class="feature-card featured" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-badge">Most Valuable</div>
+                    <div class="feature-icon-large">👨‍👩‍👧‍👦</div>
+                    <h3>Family Names = Your Family Boosts Your Student</h3>
+                    <p>
+                        Every parent in this network has either already built a successful career, or they've seen
+                        their own children navigate challenging job markets. These insights are incredibly
+                        valuable when guiding your student's decision — because many have experienced the same
+                        worries you have right now.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-accent">Real Results</span>
+                from Real Families
+            </h2>
+
+            <div class="testimonials-carousel">
+                <div class="testimonial-card" data-aos="fade-up">
+                    <div class="testimonial-content">
+                        <p>"My son just landed a job as a Business Development Manager at an early-stage FinTech!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👨‍💼</div>
+                        <span>UF Parent, Class of '92</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-content">
+                        <p>"I suggested UF to my son and discovered this network. When he started using it, it became his secret weapon in the job market."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👩‍💼</div>
+                        <span>UF Parent, Class of '95</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-stats">
+                <div class="result-stat" data-aos="zoom-in">
+                    <span class="result-number counter" data-target="47">0</span>
+                    <span class="result-label">Job Placements</span>
+                </div>
+                <div class="result-stat" data-aos="zoom-in" data-aos-delay="100">
+                    <span class="result-number counter" data-target="23">0</span>
+                    <span class="result-label">Internships Secured</span>
+                </div>
+                <div class="result-stat" data-aos="zoom-in" data-aos-delay="200">
+                    <span class="result-number counter" data-target="18">0</span>
+                    <span class="result-label">Career Pivots</span>
+                </div>
+                <div class="result-stat" data-aos="zoom-in" data-aos-delay="300">
+                    <span class="result-number counter" data-target="156">0</span>
+                    <span class="result-label">Active Mentorships</span>
+                </div>
+                <div class="result-stat" data-aos="zoom-in" data-aos-delay="400">
+                    <span class="result-number counter" data-target="3">0</span>
+                    <span class="result-label">Business Startups</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Comparison Section -->
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-accent">What This Would Cost</span>
+                Anywhere Else
+            </h2>
+
+            <div class="pricing-table">
+                <div class="pricing-row" data-aos="fade-right">
+                    <span class="pricing-item">Career coach (4 months, extensive-ish)</span>
+                    <span class="pricing-value">$500-$7,000+</span>
+                </div>
+                <div class="pricing-row" data-aos="fade-right" data-aos-delay="50">
+                    <span class="pricing-item">Professional resume writer</span>
+                    <span class="pricing-value">$400-700</span>
+                </div>
+                <div class="pricing-row" data-aos="fade-right" data-aos-delay="100">
+                    <span class="pricing-item">Mock interview coaching</span>
+                    <span class="pricing-value">$150-300/hr</span>
+                </div>
+                <div class="pricing-row" data-aos="fade-right" data-aos-delay="150">
+                    <span class="pricing-item">Access to industry professionals</span>
+                    <span class="pricing-value">Priceless</span>
+                </div>
+                <div class="pricing-row" data-aos="fade-right" data-aos-delay="200">
+                    <span class="pricing-item">Salary negotiation coaching</span>
+                    <span class="pricing-value">$200-500</span>
+                </div>
+                <div class="pricing-row" data-aos="fade-right" data-aos-delay="250">
+                    <span class="pricing-item">Warm intro</span>
+                    <span class="pricing-value">$500-5000</span>
+                </div>
+                <div class="pricing-row total" data-aos="fade-right" data-aos-delay="300">
+                    <span class="pricing-item">Total: If you bought it all separately</span>
+                    <span class="pricing-value highlight">$1,200+ to $13,000+</span>
+                </div>
+            </div>
+
+            <div class="pricing-comparison" data-aos="zoom-in" data-aos-delay="400">
+                <div class="comparison-card elsewhere">
+                    <span class="comparison-label">ELSEWHERE</span>
+                    <div class="comparison-prices">
+                        <span class="price-range">$1,200 - $13,000+</span>
+                    </div>
+                </div>
+
+                <div class="comparison-vs">VS</div>
+
+                <div class="comparison-card here">
+                    <span class="comparison-label">FOUNDING MEMBERS</span>
+                    <div class="comparison-prices">
+                        <span class="price-big">FREE</span>
+                        <span class="price-note">(+ No spam ever)</span>
+                    </div>
+                    <div class="future-price">
+                        <span>Future price: </span>
+                        <span class="strikethrough">$9</span>
+                        <span>/month</span>
+                    </div>
+                </div>
+            </div>
+
+            <p class="pricing-note">
+                Will this be free forever? Probably not. This gives you time to know.
+            </p>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="process-section" id="process">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-accent">How It</span>
+                Works
+            </h2>
+
+            <p class="section-subtitle">
+                No algorithm. No ads. Just real families building real results — with real access.
+            </p>
+
+            <div class="process-timeline">
+                <div class="process-step" data-aos="fade-up">
+                    <div class="step-number">
+                        <span>1</span>
+                    </div>
+                    <div class="step-content">
+                        <h3>Join The Network</h3>
+                        <p>Sign up and enter your background.<br>Click a couple of buttons confirming you're a UF family.</p>
+                    </div>
+                    <div class="step-visual">
+                        <div class="visual-icon">🎓</div>
+                    </div>
+                </div>
+
+                <div class="process-connector"></div>
+
+                <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-number">
+                        <span>2</span>
+                    </div>
+                    <div class="step-content">
+                        <h3>Your Student Gets Matched</h3>
+                        <p>Our team will reach out and match your student with professionals who could help them reach their goals.</p>
+                    </div>
+                    <div class="step-visual">
+                        <div class="visual-icon">🤝</div>
+                    </div>
+                </div>
+
+                <div class="process-connector"></div>
+
+                <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-number">
+                        <span>3</span>
+                    </div>
+                    <div class="step-content">
+                        <h3>Start Networking</h3>
+                        <p>Your student will then have the chance to leverage the connections made in the network. The insights they gain in one conversation could change their career trajectory.</p>
+                    </div>
+                    <div class="step-visual">
+                        <div class="visual-icon">🚀</div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="process-note">
+                <strong>Our students wouldn't have their life career trajectory.</strong>
+            </p>
+        </div>
+    </section>
+
+    <!-- Exclusivity Section -->
+    <section class="exclusivity-section" id="exclusivity">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-accent">We Keep the Network</span>
+                Small on Purpose
+            </h2>
+
+            <p class="exclusivity-text">
+                Spots are capped. Every person who enters the UF network is hand-screened. The success of this
+                model depends on it — a big network's a LinkedIn. Small networks get things done.
+            </p>
+
+            <div class="spots-counter" data-aos="zoom-in">
+                <div class="counter-glow"></div>
+                <div class="counter-icon">⚠️</div>
+                <div class="counter-content">
+                    <span class="counter-number">544 FREE FOUNDING SPOTS LEFT</span>
+                    <div class="counter-bar">
+                        <div class="counter-bar-fill"></div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="exclusivity-warning">
+                1,000 founding spots are given away each academic year to establish members from the jump —
+                so each student has plenty of opportunity to build relationships with this initial founding class.
+            </p>
+
+            <div class="signup-cta" data-aos="fade-up">
+                <button class="cta-button primary large" onclick="scrollToSection('signup')">
+                    <span>Claim Your Free Spot</span>
+                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-accent">Frequently Asked</span>
+                Questions
+            </h2>
+
+            <div class="faq-list">
+                <div class="faq-item" data-aos="fade-up">
+                    <button class="faq-question">
+                        <span>What if I don't have time to help my student?</span>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 5v14M5 12h14"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>The network is designed to be self-serve for students. You sign them up, and they can access mentors, resources, and opportunities directly. Your involvement is optional.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="50">
+                    <button class="faq-question">
+                        <span>Is this for current students or graduates?</span>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 5v14M5 12h14"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Both! Whether your student is still in school or recently graduated, the network provides valuable connections and resources.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <button class="faq-question">
+                        <span>How do you verify UF affiliation?</span>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 5v14M5 12h14"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We use a simple verification process that includes checking your UF email or alumni records. It takes just a few minutes.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="150">
+                    <button class="faq-question">
+                        <span>What does the network's future cost?</span>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 5v14M5 12h14"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Founding members get lifetime free access. Future members may pay a small monthly fee ($9/month) to maintain the network's quality and exclusivity.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <button class="faq-question">
+                        <span>What is the platform? Is it an app?</span>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 5v14M5 12h14"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>The network operates through a private online community platform accessible via web browser. A mobile app is in development.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="250">
+                    <button class="faq-question">
+                        <span>What if my family left UF?</span>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 5v14M5 12h14"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>If you attended UF at any point, you're eligible. Gator pride lasts forever.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta-section" id="signup">
+        <div class="cta-background">
+            <div class="cta-gradient"></div>
+        </div>
+        <div class="container">
+            <h2 class="cta-title">
+                Your Network. <span class="gradient-text">Their Future.</span>
+            </h2>
+
+            <p class="cta-subtitle">
+                You invested years in this student. You've made sacrifices, given advice, paid tuition.
+                This is the last link in the chain: access to opportunity.
+            </p>
+
+            <div class="final-spots">
+                <span class="pulse-dot"></span>
+                544 FREE Founding spots left
+            </div>
+
+            <div class="signup-form" data-aos="zoom-in">
+                <div class="form-glow"></div>
+                <form id="signupForm">
+                    <div class="form-group">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit" class="submit-btn">
+                            <span>Claim Your Free Spot</span>
+                            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+                <p class="form-note">Email's a one-time ask. That's how we keep it to UF.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-brand">College Fast Forward</p>
+                <p class="footer-note">Made by UF parents, for UF families.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
